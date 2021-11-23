@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import InfoModals from "./infoModals";
+import DeleteCustomer from './deleteCustomer'
 
 class Table extends Component {
   state = {
@@ -21,6 +21,8 @@ class Table extends Component {
     });
 
     this.setState({ customers });
+
+
   };
 
   render() {
@@ -69,19 +71,11 @@ class Table extends Component {
                   <button type="button" className="btn btn-primary btn-sm">
                     +
                   </button>
-                  &nbsp;
-                  <button type="button" className="btn btn-primary btn-sm">
-                    -
-                  </button>
+
                 </td>
                 <td>
-                  <button
-                    type="button"
-                    className="btn btn-danger btn-sm"
-                    onClick={() => this.handleDelete(customer)}
-                  >
-                    Delete
-                  </button>
+                  <DeleteCustomer customer={customer} onDelete={this.handleDelete} />
+
                 </td>
               </tr>
             ))}
