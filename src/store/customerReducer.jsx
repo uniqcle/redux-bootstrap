@@ -11,12 +11,13 @@ export const customerReducer = (state = initialState, action) => {
         case ADD_CUSTOMER:
             return {
                 ...state,
+                //customers: [...state.customers, action.payload]
                 customers: [...state.customers, action.payload]
             }
         case REMOVE_CUSTOMER:
             return {
                 ...state,
-                customers: state.customers.filter(customer => customer.id !== action.payload)
+                customers: state.customers.filter(customer => customer.id !== action.payload.id)
             }
 
         default:

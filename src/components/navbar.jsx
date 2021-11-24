@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Counter from './counter'
+import CustomerNavbar from "./customerNavbar";
 
 const Navbar = () => {
   return (
@@ -8,6 +9,7 @@ const Navbar = () => {
         <a className="navbar-brand" href="/">
           Logo
         </a>
+        <CustomerNavbar />
 
         <Counter />
       </div>

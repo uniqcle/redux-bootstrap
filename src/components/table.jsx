@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InfoModals from "./infoModals";
 import DeleteCustomer from './deleteCustomer'
+import AddCustomer from './addCustomer'
 
 class Table extends Component {
   state = {
@@ -13,17 +14,6 @@ class Table extends Component {
       .then((json) => this.setState({ customers: json }));
   }
 
-  handleDelete = (customer) => {
-    const { id: customerID } = customer;
-
-    let customers = this.state.customers.filter((item) => {
-      return item.id !== customerID;
-    });
-
-    this.setState({ customers });
-
-
-  };
 
   render() {
     return (
@@ -68,13 +58,11 @@ class Table extends Component {
                   </button>
                 </td>
                 <td>
-                  <button type="button" className="btn btn-primary btn-sm">
-                    +
-                  </button>
+                  <AddCustomer customer={customer} />
 
                 </td>
                 <td>
-                  <DeleteCustomer customer={customer} onDelete={this.handleDelete} />
+                  <DeleteCustomer customer={customer} />
 
                 </td>
               </tr>
