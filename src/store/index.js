@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from "redux"
+import { createStore, combineReducers, applyMiddleware } from "redux"
 import { counterReducer } from './counterReducer'
 import { customerReducer } from './customerReducer'
 import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 
 const rootReducer = combineReducers({
@@ -9,5 +10,5 @@ const rootReducer = combineReducers({
     customer: customerReducer
 })
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
